@@ -1,0 +1,16 @@
+{% load feedaggregator_tags %}
+{% load i18n %}
+
+
+<h3>{% trans 'Feeds' %}</h3>
+<ul>
+    <li><a href="{% url 'feedaggregator:rss_latest_items' %}">RSS</a></li>
+    <li><a href="{% url 'feedaggregator:rss_latest_items' %}">Atom</a></li>
+    <li><a href="{% url 'feedaggregator:opml' %}">OPML</a></li>
+</ul>
+
+{% feedaggregator_popular_tags %}
+
+{% feedaggregator_feed_list %}
+
+{% feedaggregator_latest_items 3 %}

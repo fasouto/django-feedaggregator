@@ -1,0 +1,38 @@
+==============
+feedaggregator
+==============
+
+An Django 1.8 app to aggregate RSS and Atom feeds(planet)
+
+Features
+========
+
+* Python 2/3 compatible
+* Import/export OPML and FOAF
+* Browse posts by Feed, Author or Tag
+* Bootstrap templates
+* RSS and Atom feeds
+* Sitemaps
+* Show word clouds like it's 2004
+* Multiple templatetags to adapt the site
+* SEO metatags
+* Customizable via settings.py
+
+TODO
+====
+
+* Finish tests
+* Upload demo
+* Clean up templates
+* Improve docs
+* Add package to Pypi and add docs to readthedocs
+
+Documentation
+=============
+
+Online documentation is available at http://feedaggregator.readthedocs.org/en/latest/
+
+License
+=======
+
+MIT license

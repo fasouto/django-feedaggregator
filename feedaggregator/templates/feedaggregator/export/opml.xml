@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.1">
+  <head>
+    <title>{{ site.name }}</title>
+  </head>
+  <body>
+    {% for feed in feeds %}
+      <outline text="{{ feed.title }}" title="{{ feed.title }}" htmlUrl="{{ feed.site_url }}" xmlUrl="{{ feed.feed_url }}" type="rss" />
+    {% endfor %}
+  </body>
+</opml>

@@ -1,0 +1,8 @@
+{% load i18n %}
+
+<h3>{% trans 'Popular tags' %}</h3>
+<ul>
+{% for tag in tags %}
+    <li><a href="{% url 'feedaggregator:tag_detail' tag.slug %}">{{ tag }}</a></li>
+{% endfor %}
+</ul>

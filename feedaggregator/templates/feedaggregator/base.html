@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head %}
+   <link rel="stylesheet" media="all" href="{% static 'feedaggregator/css/feedaggregator.css' %}"> 
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            {% block feedaggregator_title %}
+                <h1>{{ FEEDAGGREGATOR_TITLE }}</h1>
+            {% endblock %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            {% block feedaggregator_content %}{% endblock %}
+        </div>
+        <div class="col-md-4"> 
+            {% include 'feedaggregator/sidebar.html' %}
+        </div>
+    </div>
+{% endblock %}

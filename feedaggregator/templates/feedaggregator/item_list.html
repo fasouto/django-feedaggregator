@@ -1,0 +1,11 @@
+{% extends "feedaggregator/base.html" %}
+
+{% block feedaggregator_content %}
+    {{ block.super }}
+
+    {% for item in item_list %}
+        {% include 'feedaggregator/_item.html' %}
+    {% endfor %}
+
+    {% include 'feedaggregator/_pagination.html' %}
+{% endblock %}

@@ -1,0 +1,8 @@
+/* Make all the images responsive, 
+similar to .img-responsive from bootstrap */
+img {
+    height: auto;
+    max-width: 100%;
+    display: block;
+    padding: 10px 0px;
+}

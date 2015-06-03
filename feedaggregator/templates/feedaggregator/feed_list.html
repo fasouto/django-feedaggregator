@@ -1,0 +1,16 @@
+{% extends "feedaggregator/base.html" %}
+{% load i18n %}
+
+{% block feedaggregator_title %}
+    <h2>{% trans 'All feeds' %}</h2>
+{% endblock %}
+
+{% block feedaggregator_content %}
+    {{ block.super }}
+
+    {% for feed in feed_list %}
+        <p><a href="{{ feed.get_absolute_url }}">{{ feed }}</a></p>
+    {% endfor %}
+
+    {% include 'feedaggregator/_pagination.html' %}
+{% endblock %}

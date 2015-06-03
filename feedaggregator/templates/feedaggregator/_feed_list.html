@@ -1,0 +1,8 @@
+{% load i18n %}
+
+<h3>{% trans 'Feed list' %}</h3>
+<ul>
+{% for feed in feeds %}
+    <li><a href="{{ feed.get_absolute_url }}">{{ feed }}</a></li>
+{% endfor %}
+</ul>

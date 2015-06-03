@@ -1,0 +1,10 @@
+{% extends "feedaggregator/base.html" %}
+{% load i18n %}
+
+{% block feedaggregator_content %}
+
+    <h2><a href="">{{ item.title }}</a></h2>
+    <p><a href="{{ item.link }}">{% trans 'Read original' %}</a></p>
+    {{ item.description|safe }}
+
+{% endblock %}

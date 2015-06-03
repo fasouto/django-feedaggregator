@@ -1,0 +1,13 @@
+{% extends "feedaggregator/base.html" %}
+
+{% block feedaggregator_title %}
+    <h2>{{ feed }}</h2>
+{% endblock %}
+
+{% block feedaggregator_content %}
+    {% for item in item_list %}
+        {% include "feedaggregator/_item.html" %}
+    {% endfor %}
+
+    {% include 'feedaggregator/_pagination.html' %}
+{% endblock %}

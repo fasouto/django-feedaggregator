@@ -1,0 +1,8 @@
+{% load i18n %}
+
+<h3>{% trans 'Latest items' %}</h3>
+<ul>
+{% for item in items %}
+    <li><a href="{{ item.get_absolute_url }}">{{ item }}</a></li>
+{% endfor %}
+</ul>
