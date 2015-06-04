@@ -10,10 +10,10 @@ class FeedManager(models.Manager):
         """
         return super(FeedManager, self).get_query_set().filter(is_new=True)
 
-    def get_query_set(self):
-        return super(FeedManager, self).get_query_set().filter(is_active=True)
+    def get_queryset(self):
+        return super(FeedManager, self).get_queryset().filter(is_active=True)
 
 
 class ItemManager(models.Manager):
-    def get_query_set(self):
-        return super(ItemManager, self).get_query_set().filter(is_active=True)
+    def get_queryset(self):
+        return super(ItemManager, self).get_queryset().filter(is_active=True)

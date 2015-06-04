@@ -21,11 +21,9 @@ Features
 TODO
 ====
 
-* Finish tests
 * Upload demo
 * Clean up templates
-* Improve docs
-* Add package to Pypi and add docs to readthedocs
+* Improve tests and docs
 
 Documentation
 =============
