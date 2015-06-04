@@ -12,7 +12,6 @@ setup(
     version='0.1',
     packages=['feedaggregator'],
     include_package_data=True,
-    license='BSD License',
     description='Django app to create an RSS feeds aggregator',
     long_description=README,
     url='https://github.com/fasouto/feedaggregator/',
@@ -22,7 +21,7 @@ setup(
         'django-uuslug',
         'django-taggit',
         'celery'
-    ]
+    ],
     author='Fabio Souto',
     author_email='fabio@fabiosouto.me',
     license='MIT',

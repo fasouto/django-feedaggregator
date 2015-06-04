@@ -28,7 +28,7 @@ TODO
 Documentation
 =============
 
-Online documentation is available at http://feedaggregator.readthedocs.org/en/latest/
+Online documentation is available at http://django-feedaggregator.readthedocs.org/
 
 License
 =======
