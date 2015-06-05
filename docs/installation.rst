@@ -7,13 +7,15 @@ Installation
 
     pip install django-feedaggregator
 
-2. Add ``feedaggregator`` to INSTALLED_APPS in your settings.py:
+2. Add ``feedaggregator``,  ``taggit`` and  ``taggit_templatetags2`` to INSTALLED_APPS in your settings.py:
 
 .. code-block:: python
 
     INSTALLED_APPS = (
         ...,
-        'feedaggregator'
+        'feedaggregator',
+        'taggit',
+        'taggit_templatetags2'
     )
 
 
