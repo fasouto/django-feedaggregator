@@ -79,6 +79,8 @@ class TagDetail(ListView):
     def get_queryset(self):
         return Item.objects.filter(tags__slug__in=[self.kwargs['tag']])
 
+class TagCloud(TemplateView):
+    template_name = "feedaggregator/tag_cloud.html"
 
 def export_opml(request):
     """

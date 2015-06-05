@@ -1,0 +1,11 @@
+{% extends "feedaggregator/base.html" %}
+{% load i18n %}
+{% load taggit_templatetags2_tags %}
+
+{% block feedaggregator_content %}
+
+    <h2>{% trans 'Tag cloud' %}</h2>
+
+    {% include_tagcloud 'feedaggregator.Item' %}
+    
+{% endblock %}

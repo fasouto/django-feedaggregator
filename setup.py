@@ -20,7 +20,8 @@ setup(
         'listparser',
         'django-uuslug',
         'django-taggit',
-        'celery'
+        'celery',
+        'django-taggit-templatetags2'
     ],
     author='Fabio Souto',
     author_email='fabio@fabiosouto.me',

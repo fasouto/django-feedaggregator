@@ -24,7 +24,6 @@ def update_feed(feed):
         logger.error("Error in feed %s: %s" %(feed.feed_url, parsed_feed.bozo_exception))
         return
 
-    print(feed)
     if feed.is_new:
         title = parsed_feed.feed.get('title', "-")
         if not title:  # Check for empty strings

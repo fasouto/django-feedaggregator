@@ -49,6 +49,10 @@ class Feed(models.Model):
     def is_new(self):
         return self.updated_on == None
 
+    @property
+    def has_items(self):
+        return Item.active.filter(feed=self).exists()
+
     def __str__(self):
         return self.title
 
