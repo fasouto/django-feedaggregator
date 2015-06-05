@@ -1,7 +1,8 @@
 {% extends "feedaggregator/base.html" %}
+{% load i18n %}
 
 {% block feedaggregator_title %}
-    <h2>Tag</h2>
+    <h2>{% trans 'Items with the tag:' %} {{ tag }}</h2>
 {% endblock %}
 
 {% block feedaggregator_content %}

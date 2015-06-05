@@ -70,7 +70,12 @@ class TagDetail(ListView):
     context_object_name = "item_list"
     template_name = "feedaggregator/tag_detail.html"
     paginate_by = FEEDAGGREGATOR_PAGE_SIZE
-    
+
+    def get_context_data(self, **kwargs):
+        context = super(TagDetail, self).get_context_data(**kwargs)
+        context['tag'] = Tag.objects.get(slug=self.kwargs['tag'])
+        return context
+
     def get_queryset(self):
         return Item.objects.filter(tags__slug__in=[self.kwargs['tag']])
 
