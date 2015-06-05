@@ -6,3 +6,15 @@ img {
     display: block;
     padding: 10px 0px;
 }
+
+article > header > h2 {
+    font-size: 300%;
+}
+
+article > header > h2 > a:hover {
+    text-decoration: none;
+}
+
+article {
+    padding-bottom: 25px;
+}
