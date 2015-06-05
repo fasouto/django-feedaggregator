@@ -5,6 +5,8 @@ from django.views.generic.list import MultipleObjectMixin
 from django.contrib.sites.shortcuts import get_current_site
 import xml.etree.ElementTree as etree 
 
+from taggit.models import Tag
+
 from feedaggregator.models import Feed, Item
 from feedaggregator.settings import FEEDAGGREGATOR_PAGE_SIZE
 
@@ -51,6 +53,13 @@ class ItemDetail(DetailView):
     """
     model = Item
     context_object_name = "item"
+
+
+class TagList(ListView):
+    model = Tag
+    context_object_name = "tag_list"
+    template_name = "feedaggregator/tag_list.html"
+    paginate_by = FEEDAGGREGATOR_PAGE_SIZE
 
 
 class TagDetail(ListView):

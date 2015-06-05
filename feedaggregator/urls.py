@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import patterns, url
 
-from feedaggregator.views import ItemList, ItemDetail, FeedDetail, FeedList, TagDetail
+from feedaggregator.views import ItemList, ItemDetail, FeedDetail, FeedList, TagDetail, TagList
 from feedaggregator.feeds import LatestItemsFeed, AtomLatestItemsFeed 
 
 
@@ -15,7 +15,7 @@ urlpatterns = patterns('feedaggregator.views',
     url(r'^feeds/(?P<slug>[-\w]+)/$', FeedDetail.as_view(), name="feed_detail"),
 
     # Tags
-    # url(r'^tags/$', TagList.as_view(), name="tag_list"),
+    url(r'^tags/$', TagList.as_view(), name="tag_list"),
     url(r'^tag/(?P<tag>[-\w]+)/$', TagDetail.as_view(), name="tag_detail"),
 
     # Tag cloud    

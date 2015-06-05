@@ -1,0 +1,18 @@
+{% extends "feedaggregator/base.html" %}
+{% load i18n %}
+
+{% block feedaggregator_title %}
+    <h2>{% trans 'All tags' %}</h2>
+{% endblock %}
+
+{% block feedaggregator_content %}
+    {{ block.super }}
+
+    <ul>
+    {% for tag in tag_list %}
+        <li><a href="{% url 'feedaggregator:tag_detail' tag.slug %}">{{ tag }}</a></li>
+    {% endfor %}
+    </ul>
+
+    {% include 'feedaggregator/_pagination.html' %}
+{% endblock %}

@@ -51,3 +51,29 @@ class FeedAggregatorLatestItems(TestCase):
         rendered = self.LIMITED_TEMPLATE.render(Context({}))
         self.assertIn(self.first_item.title, rendered)
         self.assertNotIn(self.second_item.title, rendered)
+
+
+class FeedAggregatorPopularTags(TestCase):
+    """
+    Test the custom feedaggregator_latest_items template tag
+    """
+
+    TEMPLATE = Template("{% load feedaggregator_tags %} {% feedaggregator_popular_tags %}")
+    LIMITED_TEMPLATE = Template("{% load feedaggregator_tags %} {% feedaggregator_popular_tags 1 %}")
+
+    def setUp(self):
+        self.test_feed = Feed.objects.create(feed_url="http://example.com/feed.xml", title="Foo")
+        self.first_item = Item.objects.create(feed=self.test_feed, link="http://example.com/feedaggregator1", title="First title")
+        self.second_item = Item.objects.create(feed=self.test_feed, link="http://example.com/feedaggregator2", title="Second title")
+        self.first_item.tags.add('python', 'django', 'bar')
+        self.second_item.tags.add('python', 'foo')
+
+    def test_items_shows_up(self):
+        rendered = self.TEMPLATE.render(Context({}))
+        self.assertIn('python', rendered)
+        self.assertNotIn('flask', rendered)
+
+    def test_limit_results(self):
+        rendered = self.LIMITED_TEMPLATE.render(Context({}))
+        self.assertIn('python', rendered)
+        self.assertNotIn('django', rendered)
