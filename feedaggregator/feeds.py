@@ -12,7 +12,6 @@ class LatestItemsFeed(DjangoFeed):
 
     def items(self):
         return Item.active.order_by('-date_modified')[:FEEDAGGREGATOR_RSS_SIZE]
-        # return Item.active.all()[:2]
 
     def link(self):
         return reverse("feedaggregator:rss_latest_items")

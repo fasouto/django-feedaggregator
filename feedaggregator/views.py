@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
 from django.views.generic import DetailView, ListView, TemplateView
-from django.views.generic.list import MultipleObjectMixin
 from django.contrib.sites.shortcuts import get_current_site
-import xml.etree.ElementTree as etree 
 
 from taggit.models import Tag
 
@@ -34,9 +32,10 @@ class FeedDetail(ListView):
         context = super(FeedDetail, self).get_context_data(**kwargs)
         context['feed'] = Feed.objects.get(slug=self.kwargs['slug'])
         return context
-    
+
     def get_queryset(self):
         return Item.objects.filter(feed__slug=self.kwargs['slug'])
+
 
 class ItemList(ListView):
     """
@@ -79,8 +78,10 @@ class TagDetail(ListView):
     def get_queryset(self):
         return Item.objects.filter(tags__slug__in=[self.kwargs['tag']])
 
+
 class TagCloud(TemplateView):
     template_name = "feedaggregator/tag_cloud.html"
+
 
 def export_opml(request):
     """

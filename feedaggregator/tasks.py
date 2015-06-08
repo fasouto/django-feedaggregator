@@ -7,12 +7,12 @@ import logging
 import feedparser
 
 from feedaggregator.settings import FEEDAGGREGATOR_TAGS_LOWERCASE
-from feedaggregator.models import Feed, Item
+from feedaggregator.models import Item
 
 logger = logging.getLogger(__name__)
 
 
-@task 
+@task
 def update_feed(feed):
     """
     Update the feed content and fetch latest items.
@@ -21,7 +21,7 @@ def update_feed(feed):
     parsed_feed = feedparser.parse(feed.feed_url)
 
     if parsed_feed.bozo:  # Handle error in feed
-        logger.error("Error in feed %s: %s" %(feed.feed_url, parsed_feed.bozo_exception))
+        logger.error("Error in feed %s: %s" % (feed.feed_url, parsed_feed.bozo_exception))
         return
 
     if feed.is_new:
@@ -29,7 +29,7 @@ def update_feed(feed):
         if not title:  # Check for empty strings
             title = "<Untitled>"
 
-        link = parsed_feed.feed.get('link') 
+        link = parsed_feed.feed.get('link')
         description = parsed_feed.feed.get('description', "")
 
         if 'updated_parsed' in parsed_feed.feed:
@@ -43,7 +43,7 @@ def update_feed(feed):
 
     # Save the feed items
     for entry in parsed_feed.entries:
-        if all (k in entry for k in ("title", "link")):
+        if all(k in entry for k in ("title", "link")):
             print(entry)
             entry_title = entry.get('title', "<Untitled>")
             if not entry_title:  # Check for empty strings
@@ -67,5 +67,5 @@ def update_feed(feed):
             for tag_dict in entry.get('tags', ''):
                 term = tag_dict.get('term', '')
                 if FEEDAGGREGATOR_TAGS_LOWERCASE:
-                    term = term.lower()                 
+                    term = term.lower()
                 feed_item.tags.add(term)

@@ -15,7 +15,7 @@ setup(
     description='Django app to create an RSS feeds aggregator',
     long_description=README,
     url='https://github.com/fasouto/feedaggregator/',
-    install_requires = [
+    install_requires=[
         'feedparser',
         'listparser',
         'django-uuslug',

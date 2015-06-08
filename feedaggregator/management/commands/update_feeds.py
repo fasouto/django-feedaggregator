@@ -30,5 +30,5 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         for feed in Feed.objects.all():
             update_feed(feed)
-        ping_google()  #  tell google to reindex the site
+        ping_google()  # tell google to reindex the site
         logger.info("Feeds updated")

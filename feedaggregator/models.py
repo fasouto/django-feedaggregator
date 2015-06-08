@@ -6,7 +6,7 @@ django-feedaggregator models
 """
 
 from __future__ import unicode_literals
-from django.db import models, IntegrityError
+from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse
 from django.utils.encoding import python_2_unicode_compatible
@@ -47,7 +47,7 @@ class Feed(models.Model):
 
     @property
     def is_new(self):
-        return self.updated_on == None
+        return self.updated_on is None
 
     @property
     def has_items(self):
@@ -95,7 +95,7 @@ class Item(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('feedaggregator:item_detail', kwargs={ "slug": self.slug })
+        return reverse('feedaggregator:item_detail', kwargs={"slug": self.slug})
 
 
 @python_2_unicode_compatible
