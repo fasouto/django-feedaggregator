@@ -8,7 +8,7 @@ Features
 ========
 
 * Python 2/3 compatible
-* Import/export OPML and FOAF
+* Import/export OPML feeds
 * Browse posts by Feed, Author or Tag
 * Bootstrap templates
 * RSS and Atom feeds
