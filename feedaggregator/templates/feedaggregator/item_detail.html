@@ -2,9 +2,16 @@
 {% load i18n %}
 
 {% block feedaggregator_content %}
-
-    <h2><a href="">{{ item.title }}</a></h2>
-    <p><a href="{{ item.link }}">{% trans 'Read original' %}</a></p>
+<article>
+  <header>
+    <h2><a href="{{ item.link }}">{{ item.title }}</a></h2>
+    <p><a href="{{ item.link }}">{% trans 'Link to the original' %}</a>
+  </header>
     {{ item.description|safe }}
-
+  <footer>
+  {% for tag in item.tags.all %}
+    <a href="{% url 'feedaggregator:tag_detail' tag.slug %}"><span class="label label-default">{{ tag }}</span></a>
+  {% endfor %}
+  </footer>
+</article>
 {% endblock %}
