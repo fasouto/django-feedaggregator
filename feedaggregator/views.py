@@ -17,6 +17,9 @@ class FeedList(ListView):
     context_object_name = "feed_list"
     paginate_by = FEEDAGGREGATOR_PAGE_SIZE
 
+    def get_queryset(self):
+        return Feed.active.all()
+
 
 class FeedDetail(ListView):
     """
@@ -34,7 +37,7 @@ class FeedDetail(ListView):
         return context
 
     def get_queryset(self):
-        return Item.objects.filter(feed__slug=self.kwargs['slug'])
+        return Item.active.filter(feed__slug=self.kwargs['slug'])
 
 
 class ItemList(ListView):
@@ -44,6 +47,9 @@ class ItemList(ListView):
     model = Item
     context_object_name = "item_list"
     paginate_by = FEEDAGGREGATOR_PAGE_SIZE
+
+    def get_queryset(self):
+        return Item.active.all()
 
 
 class ItemDetail(DetailView):
@@ -76,7 +82,7 @@ class TagDetail(ListView):
         return context
 
     def get_queryset(self):
-        return Item.objects.filter(tags__slug__in=[self.kwargs['tag']])
+        return Item.active.filter(tags__slug__in=[self.kwargs['tag']])
 
 
 class TagCloud(TemplateView):
