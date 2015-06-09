@@ -15,7 +15,6 @@ Features
 * Sitemaps
 * Show word clouds like it's 2004
 * Multiple templatetags to adapt the site
-* SEO metatags
 * Customizable via settings.py
 
 TODO
