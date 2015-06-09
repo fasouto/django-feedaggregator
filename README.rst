@@ -22,7 +22,6 @@ TODO
 ====
 
 * Upload demo
-* Clean up templates
 * Improve tests and docs
 
 Documentation
