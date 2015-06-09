@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-feedaggregator',
-    version='0.1',
+    version='0.2',
     packages=['feedaggregator'],
     include_package_data=True,
     description='Django app to create an RSS feeds aggregator',
